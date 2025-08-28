@@ -5,26 +5,11 @@
 body {
   margin: 0;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  place-items: center;
   font-family: ui-serif, Georgia, 'Times New Roman', serif;
   background: var(--beige);
   color: var(--green);
-}
-
-main {
-  flex: 1; /* pushes footer down */
-  display: grid;
-  place-items: center;
-}
-
-footer {
-  font-size: .85rem;
-  opacity: .75;
-  width: 100%;
-  text-align: center;
-  padding: 0.75rem 0;
-  background: #fff8; /* optional: give it a faint bg */
 }
 
 .card {
@@ -74,6 +59,16 @@ p.tagline {
   color: var(--green);
   text-underline-offset: 3px;
 }
+
+footer {
+  font-size: .85rem;
+  opacity: .75;
+  width: 100%;
+  text-align: center;
+  margin-top: 2rem; /* pushes footer away from content */
+  position: static; /* default, so it scrolls with the page */
+}
+
 
 footer a {
   color: var(--green);
