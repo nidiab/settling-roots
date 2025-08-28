@@ -61,13 +61,14 @@ p.tagline {
 }
 
 footer {
-  position: fixed;
-  bottom: .75rem;
   font-size: .85rem;
   opacity: .75;
   width: 100%;
   text-align: center;
+  margin-top: 2rem; /* pushes footer away from content */
+  position: static; /* default, so it scrolls with the page */
 }
+
 
 footer a {
   color: var(--green);
