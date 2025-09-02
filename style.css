@@ -79,3 +79,17 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
+
+/* Language selector (moved from about.html inline styles) */
+.language-selector {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.language-selector select {
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: white;
+}
