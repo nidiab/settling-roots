@@ -15,6 +15,11 @@ body {
   font-size: clamp(16px, 2.5vw, 18px);
 }
 
+/* Add spacing above main content */
+main.card {
+  margin-top: 1rem;
+}
+
 /* Global link and focus styles */
 a {
   color: var(--green);
@@ -98,7 +103,7 @@ footer {
   opacity: .8;
   width: min(92%, 780px);
   text-align: center;
-  margin: 2rem 0 0;
+  margin: 2rem 0 1rem;
   position: static;
   display: flex;
   align-items: center;
