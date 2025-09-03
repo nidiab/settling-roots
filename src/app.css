@@ -98,7 +98,7 @@ footer {
   opacity: .8;
   width: min(92%, 780px);
   text-align: center;
-  margin: 2rem auto 0;
+  margin: 2rem 0 0;
   position: static;
   display: flex;
   align-items: center;
