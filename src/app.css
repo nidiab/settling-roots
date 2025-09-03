@@ -123,25 +123,13 @@ footer span::after {
 }
 
 .language-selector {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 1000;
   display: flex;
   gap: .5rem;
   align-items: center;
-}
-
-.language-selector select {
-  padding: 8px 12px;
-  border-radius: 6px;
-  border: 1px solid #bdbdbd;
-  background-color: #fff;
-  font-size: .95rem;
-}
-
-.language-selector select:focus-visible {
-  outline: 3px solid color-mix(in oklab, var(--green), white 30%);
-  outline-offset: 2px;
 }
 
 /* Flag buttons */
@@ -181,12 +169,6 @@ footer span::after {
 }
 
 @media (max-width: 480px) {
-  .language-selector {
-    position: static;
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 1rem;
-  }
   footer {
     flex-direction: column;
     gap: .5rem;
