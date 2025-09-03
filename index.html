@@ -8,6 +8,22 @@
   <link rel="icon" type="image/png" href="/logo.png" />
   <link rel="apple-touch-icon" href="/logo.png" />
   <link rel="shortcut icon" type="image/png" href="/logo.png" />
+  <!-- Google Analytics (GA4) - uses Vite env import.meta.env.VITE_GA_ID -->
+  <script type="module">
+    const GA_ID = import.meta.env.VITE_GA_ID;
+    if (GA_ID) {
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){window.dataLayer.push(arguments);} 
+      window.gtag = gtag;
+      window.__GA_ID__ = GA_ID;
+      gtag('js', new Date());
+      gtag('config', GA_ID);
+    }
+  </script>
 </head>
 <body>
   <div id="root"></div>

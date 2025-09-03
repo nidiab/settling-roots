@@ -56,6 +56,19 @@ export default function App() {
     }
   }, [pageKey, lang])
 
+  // Send GA4 page_view on route change if GA is loaded
+  useEffect(() => {
+    try {
+      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+        window.gtag('event', 'page_view', {
+          page_path: location.pathname + location.search,
+        })
+      }
+    } catch (e) {
+      // ignore analytics errors in client
+    }
+  }, [location.pathname, location.search])
+
   const ctx = useMemo(() => ({ lang, setLang, dict }), [lang, dict])
 
   return (
