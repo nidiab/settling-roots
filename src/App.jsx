@@ -19,15 +19,27 @@ export function useI18n() {
 function LanguageSelector() {
   const { lang, setLang, dict } = useI18n()
   return (
-    <div className="language-selector">
-      <select
-        id="languageSelect"
-        value={lang}
-        onChange={(e) => setLang(e.target.value)}
+    <div className="language-selector" role="group" aria-label="Language selector">
+      <button
+        type="button"
+        className={`flag-btn ${lang === 'en' ? 'active' : ''}`}
+        onClick={() => setLang('en')}
+        aria-pressed={lang === 'en'}
+        title={dict?.langEnglish ?? 'English'}
       >
-        <option value="en">{dict?.langEnglish ?? 'English'}</option>
-        <option value="pt">{dict?.langPortuguese ?? 'Português'}</option>
-      </select>
+        <img className="flag-img" src="/flags/en.svg" width="20" height="14" alt="English" />
+        <span className="label">EN</span>
+      </button>
+      <button
+        type="button"
+        className={`flag-btn ${lang === 'pt' ? 'active' : ''}`}
+        onClick={() => setLang('pt')}
+        aria-pressed={lang === 'pt'}
+        title={dict?.langPortuguese ?? 'Português'}
+      >
+        <img className="flag-img" src="/flags/pt.svg" width="20" height="14" alt="Português" />
+        <span className="label">PT</span>
+      </button>
     </div>
   )
 }

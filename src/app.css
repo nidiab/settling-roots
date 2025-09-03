@@ -126,6 +126,9 @@ footer span::after {
   position: absolute;
   top: 20px;
   right: 20px;
+  display: flex;
+  gap: .5rem;
+  align-items: center;
 }
 
 .language-selector select {
@@ -139,6 +142,35 @@ footer span::after {
 .language-selector select:focus-visible {
   outline: 3px solid color-mix(in oklab, var(--green), white 30%);
   outline-offset: 2px;
+}
+
+/* Flag buttons */
+.language-selector .flag-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .35rem .55rem;
+  border-radius: 8px;
+  border: 1px solid #bdbdbd;
+  background: #fff;
+  color: var(--green);
+  font-weight: 600;
+  font-size: .9rem;
+  cursor: pointer;
+  box-shadow: 0 1px 1px #0000000a;
+}
+
+.language-selector .flag-btn .flag { font-size: 1rem; line-height: 1; }
+.language-selector .flag-btn .label { font-size: .85rem; letter-spacing: .02em; }
+
+.language-selector .flag-btn:hover { background: #f6f6f6; }
+.language-selector .flag-btn:focus-visible {
+  outline: 3px solid color-mix(in oklab, var(--green), white 30%);
+  outline-offset: 2px;
+}
+.language-selector .flag-btn.active {
+  border-color: color-mix(in oklab, var(--green), white 30%);
+  background: color-mix(in oklab, var(--green), white 92%);
 }
 
 @media (max-width: 480px) {
