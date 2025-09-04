@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export default function Home({ dict }) {
   return (
@@ -8,5 +8,5 @@ export default function Home({ dict }) {
       <div className="soon">{dict?.comingSoon ?? ''}</div>
       <div className="cta" dangerouslySetInnerHTML={{ __html: dict?.cta ?? '' }} />
     </>
-  )
+  );
 }

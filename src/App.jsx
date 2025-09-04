@@ -1,23 +1,23 @@
-import React, { createContext, useContext, useEffect, useMemo, useState } from 'react'
-import { Link, Route, Routes, useLocation } from 'react-router-dom'
-import Home from './pages/Home'
-import About from './pages/About'
-import { loadLocale } from './i18n'
-import './app.css'
+import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { Link, Route, Routes, useLocation } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import { loadLocale } from './i18n';
+import './app.css';
 
-const LangContext = createContext({ lang: 'en', setLang: () => {} })
+const LangContext = createContext({ lang: 'en', setLang: () => {} });
 
 function usePageKey(pathname) {
-  if (pathname.endsWith('/about')) return 'about'
-  return 'index'
+  if (pathname.endsWith('/about')) return 'about';
+  return 'index';
 }
 
 export function useI18n() {
-  return useContext(LangContext)
+  return useContext(LangContext);
 }
 
 function LanguageSelector() {
-  const { lang, setLang, dict } = useI18n()
+  const { lang, setLang, dict } = useI18n();
   return (
     <div className="language-selector" role="group" aria-label="Language selector">
       <button
@@ -41,32 +41,32 @@ function LanguageSelector() {
         <span className="label">PT</span>
       </button>
     </div>
-  )
+  );
 }
 
 export default function App() {
-  const location = useLocation()
-  const [lang, setLang] = useState(() => localStorage.getItem('preferredLanguage') || 'en')
-  const [dict, setDict] = useState(null)
-  const pageKey = usePageKey(location.pathname)
+  const location = useLocation();
+  const [lang, setLang] = useState(() => localStorage.getItem('preferredLanguage') || 'en');
+  const [dict, setDict] = useState(null);
+  const pageKey = usePageKey(location.pathname);
 
   useEffect(() => {
-    document.documentElement.setAttribute('lang', lang)
-    document.documentElement.setAttribute('data-lang', lang)
-    localStorage.setItem('preferredLanguage', lang)
-  }, [lang])
+    document.documentElement.setAttribute('lang', lang);
+    document.documentElement.setAttribute('data-lang', lang);
+    localStorage.setItem('preferredLanguage', lang);
+  }, [lang]);
 
   useEffect(() => {
-    let alive = true
+    let alive = true;
     loadLocale(pageKey, lang).then((d) => {
-      if (!alive) return
-      setDict(d)
-      if (d?.pageTitle) document.title = d.pageTitle
-    })
+      if (!alive) return;
+      setDict(d);
+      if (d?.pageTitle) document.title = d.pageTitle;
+    });
     return () => {
-      alive = false
-    }
-  }, [pageKey, lang])
+      alive = false;
+    };
+  }, [pageKey, lang]);
 
   // Send GA4 page_view on route change if GA is loaded
   useEffect(() => {
@@ -74,14 +74,14 @@ export default function App() {
       if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
         window.gtag('event', 'page_view', {
           page_path: location.pathname + location.search,
-        })
+        });
       }
     } catch (e) {
       // ignore analytics errors in client
     }
-  }, [location.pathname, location.search])
+  }, [location.pathname, location.search]);
 
-  const ctx = useMemo(() => ({ lang, setLang, dict }), [lang, dict])
+  const ctx = useMemo(() => ({ lang, setLang, dict }), [lang, dict]);
 
   return (
     <LangContext.Provider value={ctx}>
@@ -98,8 +98,7 @@ export default function App() {
         </Routes>
       </main>
       <footer>
-        <span>© {new Date().getFullYear()} Settling Roots</span>
-        {" "}
+        <span>© {new Date().getFullYear()} Settling Roots</span>{' '}
         {pageKey === 'about' ? (
           <Link to="/">{dict?.home ?? 'Home'}</Link>
         ) : (
@@ -107,5 +106,5 @@ export default function App() {
         )}
       </footer>
     </LangContext.Provider>
-  )
+  );
 }

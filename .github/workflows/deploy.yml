@@ -2,7 +2,7 @@ name: Build and Publish Docs
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
     # Avoid infinite loops when the workflow commits only docs changes
     paths-ignore:
       - 'docs/**'
