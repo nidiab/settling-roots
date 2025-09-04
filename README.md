@@ -1,11 +1,11 @@
 # Settling Roots
 
-A small Vite + React application deployed to GitHub Pages from the `docs/` directory.
+A small Vite + React application deployed to GitHub Pages using GitHub Actions artifacts (no built files committed).
 
 ## Scripts
 
 - `npm run dev` — start Vite dev server
-- `npm run build` — build to `docs/` (for GitHub Pages)
+- `npm run build` — build to `dist/` (artifact uploaded by Pages workflow)
 - `npm run preview` — preview production build locally
 - `npm run lint` — run ESLint (flat config)
 - `npm run format` — format with Prettier
@@ -16,7 +16,7 @@ A small Vite + React application deployed to GitHub Pages from the `docs/` direc
 - ESLint (flat config) with `eslint-plugin-react` and `eslint-plugin-react-hooks`
 - Prettier for formatting
 - GitHub Actions CI (`.github/workflows/ci.yml`) runs lint, format check, and build on push/PR
-- Deploy workflow (`.github/workflows/deploy.yml`) builds `docs/` on push to `main`
+- Deploy workflow (`.github/workflows/deploy.yml`) uploads `dist/` and deploys to GitHub Pages (no `docs/` committed)
 - Husky + lint-staged run ESLint fix and Prettier on staged files at commit time
 
 ## Development
@@ -32,7 +32,7 @@ A small Vite + React application deployed to GitHub Pages from the `docs/` direc
 
 ## GitHub Pages
 
-The Vite build outputs to `docs/`, which is committed to the repository and served by GitHub Pages.
+The Vite build outputs to `dist/`. The Pages workflow uploads it as an artifact and deploys it. The `docs/` folder is ignored and not committed.
 
 ## Environment Variables
 

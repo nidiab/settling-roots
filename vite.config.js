@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   base: '/',
-  build: { outDir: 'docs' },
+  build: { outDir: 'dist' },
   // Use a custom cache directory to avoid EPERM rmdir issues under OneDrive on Windows
   cacheDir: 'node_modules/.vite-cache',
 });

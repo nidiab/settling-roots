@@ -1,25 +1,25 @@
-name: Build and Publish Docs
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches: [main]
-    # Avoid infinite loops when the workflow commits only docs changes
-    paths-ignore:
-      - 'docs/**'
-      - '.github/**'
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
-  build-docs:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -27,27 +27,31 @@ jobs:
           node-version: 18
           cache: 'npm'
 
-      - name: Install deps
+      - name: Install dependencies
         run: npm ci
 
       - name: Build
         env:
-          # Uses production GA ID included in .env.production checked into the repo
           NODE_ENV: production
-        run: npm run build
-
-      - name: Ensure SPA 404 exists
         run: |
-          cp docs/index.html docs/404.html
+          npm run build
+          # Ensure SPA fallback exists
+          cp dist/index.html dist/404.html
 
-      - name: Commit docs if changed
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs
-          if git diff --cached --quiet; then
-            echo "No docs changes to commit."
-          else
-            git commit -m "chore: build docs [skip ci]"
-            git push
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+          git push
           fi
