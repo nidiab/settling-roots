@@ -1,9 +1,13 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches: [main]
+  # Manual trigger only to prevent automatic publishing while developing
   workflow_dispatch:
+    inputs:
+      reason:
+        description: "Why are we deploying?"
+        required: false
+        default: "manual deploy"
 
 permissions:
   contents: read
