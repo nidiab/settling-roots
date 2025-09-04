@@ -259,6 +259,59 @@ li + li {
   margin-top: 0.25rem;
 }
 
+/* Products page */
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+  text-align: left;
+}
+.product-card {
+  border: 1px solid #0000001a;
+  border-radius: 10px;
+  padding: 1rem;
+  background: #fff;
+  box-shadow: 0 4px 14px #0000000f;
+}
+.product-card h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1.2rem;
+}
+.product-subtitle {
+  margin: 0 0 0.5rem;
+  opacity: 0.8;
+  font-size: 0.95rem;
+}
+.product-desc {
+  margin: 0.5rem 0 0.75rem;
+}
+.product-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+.price {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.btn.primary {
+  display: inline-block;
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid color-mix(in oklab, var(--green), white 35%);
+  background: color-mix(in oklab, var(--green), white 92%);
+  color: var(--green);
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 1px 1px #00000010;
+}
+.btn.primary:hover {
+  background: color-mix(in oklab, var(--green), white 88%);
+}
+
 /* Optional dark mode */
 @media (prefers-color-scheme: dark) {
   :root {

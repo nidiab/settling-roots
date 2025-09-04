@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useMemo, useState } from '
 import { Link, Route, Routes, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
+import Products from './pages/Products';
 import { loadLocale } from './i18n';
 import './app.css';
 
@@ -9,7 +10,8 @@ const LangContext = createContext({ lang: 'en', setLang: () => {} });
 
 function usePageKey(pathname) {
   if (pathname.endsWith('/about')) return 'about';
-  return 'index';
+  if (pathname.endsWith('/products') || pathname === '/' || pathname === '') return 'products';
+  return 'products';
 }
 
 export function useI18n() {
@@ -93,17 +95,19 @@ export default function App() {
       <main className="card" role="main">
         <img className="logo" src="/logo.png" alt="Settling Roots Portugal logo" />
         <Routes>
-          <Route path="/" element={<Home dict={dict} />} />
+          <Route path="/" element={<Products dict={dict} />} />
           <Route path="/about" element={<About dict={dict} />} />
+          <Route path="/products" element={<Products dict={dict} />} />
+          <Route path="/home" element={<Home dict={dict} />} />
         </Routes>
       </main>
       <footer>
-        <span>© {new Date().getFullYear()} Settling Roots</span>{' '}
-        {pageKey === 'about' ? (
-          <Link to="/">{dict?.home ?? 'Home'}</Link>
-        ) : (
-          <Link to="/about">{dict?.about ?? 'About'}</Link>
-        )}
+        <span> {new Date().getFullYear()} Settling Roots</span>{' '}
+        <nav aria-label="Footer">
+          <Link to="/">{dict?.home ?? 'Home'}</Link> ·{' '}
+          <Link to="/about">{dict?.about ?? 'About'}</Link> ·{' '}
+          <Link to="/products">{dict?.products ?? 'Products'}</Link>
+        </nav>
       </footer>
     </LangContext.Provider>
   );
