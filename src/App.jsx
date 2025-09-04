@@ -3,6 +3,7 @@ import { Link, Route, Routes, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import Products from './pages/Products';
+import Thanks from './pages/Thanks';
 import { loadLocale } from './i18n';
 import './app.css';
 
@@ -11,6 +12,7 @@ const LangContext = createContext({ lang: 'en', setLang: () => {} });
 function usePageKey(pathname) {
   if (pathname.endsWith('/about')) return 'about';
   if (pathname.endsWith('/products') || pathname === '/' || pathname === '') return 'products';
+  if (pathname.endsWith('/thanks')) return 'thanks';
   return 'products';
 }
 
@@ -99,6 +101,7 @@ export default function App() {
           <Route path="/about" element={<About dict={dict} />} />
           <Route path="/products" element={<Products dict={dict} />} />
           <Route path="/home" element={<Home dict={dict} />} />
+          <Route path="/thanks" element={<Thanks dict={dict} />} />
         </Routes>
       </main>
       <footer>

@@ -16,7 +16,12 @@ export default function Products({ dict }) {
           </p>
           <div className="product-cta">
             <span className="price">{dict?.product1_price ?? '€29'}</span>
-            <a className="btn primary" href={dict?.product1_cta_href ?? '#'}>
+            <a
+              className="btn primary"
+              href={dict?.product1_cta_href ?? '#'}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {dict?.product1_cta ?? 'Get it soon'}
             </a>
           </div>
