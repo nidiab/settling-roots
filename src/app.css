@@ -18,7 +18,22 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; /* keep header at the top */
+  align-items: center; /* center content horizontally */
+}
+
+/* Site header that contains the language selector */
+.site-header {
+  width: 100%;
+  display: block;
+  padding: .75rem 1rem 0;
+}
+
+.header-inner {
+  width: min(92%, 780px);
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -135,10 +150,7 @@ footer span::after {
 }
 
 .language-selector {
-  position: fixed;
-  top: 16px;
-  right: 16px;
-  z-index: 1000;
+  position: static; /* inside header now */
   display: flex;
   gap: .5rem;
   align-items: center;

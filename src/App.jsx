@@ -85,9 +85,13 @@ export default function App() {
 
   return (
     <LangContext.Provider value={ctx}>
+      <header className="site-header" role="banner">
+        <div className="header-inner">
+          <LanguageSelector />
+        </div>
+      </header>
       <main className="card" role="main">
         <img className="logo" src="/logo.png" alt="Settling Roots Portugal logo" />
-        <LanguageSelector />
         <Routes>
           <Route path="/" element={<Home dict={dict} />} />
           <Route path="/about" element={<About dict={dict} />} />
