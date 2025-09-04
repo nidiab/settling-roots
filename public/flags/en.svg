@@ -1,21 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60" height="42" viewBox="0 0 60 42" aria-hidden="true" role="img">
-  <defs>
-    <clipPath id="r"><rect width="60" height="42" rx="2" ry="2"/></clipPath>
-  </defs>
-  <g clip-path="url(#r)">
-    <rect width="60" height="42" fill="#012169"/>
-    <!-- White diagonals -->
-    <path d="M0,0 L7,0 L60,26 L60,32 L53,32 L0,6 Z" fill="#FFF"/>
-    <path d="M60,0 L53,0 L0,26 L0,32 L7,32 L60,6 Z" fill="#FFF"/>
-    <!-- Red diagonals -->
-    <path d="M0,0 L3.5,0 L60,28.5 L60,32 L56.5,32 L0,3.5 Z" fill="#C8102E"/>
-    <path d="M60,0 L56.5,0 L0,28.5 L0,32 L3.5,32 L60,3.5 Z" fill="#C8102E"/>
-    <!-- White cross -->
-    <rect x="0" y="14.5" width="60" height="13" fill="#FFF"/>
-    <rect x="23.5" y="0" width="13" height="42" fill="#FFF"/>
-    <!-- Red cross -->
-    <rect x="0" y="17" width="60" height="8" fill="#C8102E"/>
-    <rect x="26" y="0" width="8" height="42" fill="#C8102E"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1235" height="650" viewBox="0 0 7410 3900">
+<path d="M0,0h7410v3900H0" fill="#b31942"/>
+<path d="M0,450H7410m0,600H0m0,600H7410m0,600H0m0,600H7410m0,600H0" stroke="#FFF" stroke-width="300"/>
+<path d="M0,0h2964v2100H0" fill="#0a3161"/>
+<g fill="#FFF">
+<g id="s18">
+<g id="s9">
+<g id="s5">
+<g id="s4">
+<path id="s" d="M247,90 317.534230,307.082039 132.873218,172.917961H361.126782L176.465770,307.082039z"/>
+<use xlink:href="#s" y="420"/>
+<use xlink:href="#s" y="840"/>
+<use xlink:href="#s" y="1260"/>
+</g>
+<use xlink:href="#s" y="1680"/>
+</g>
+<use xlink:href="#s4" x="247" y="210"/>
+</g>
+<use xlink:href="#s9" x="494"/>
+</g>
+<use xlink:href="#s18" x="988"/>
+<use xlink:href="#s9" x="1976"/>
+<use xlink:href="#s5" x="2470"/>
+</g>
 </svg>
