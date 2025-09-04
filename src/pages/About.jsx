@@ -27,7 +27,6 @@ export default function About({ dict }) {
           <li>{dict?.li2 ?? ''}</li>
           <li>{dict?.li3 ?? ''}</li>
           <li>{dict?.li4 ?? ''}</li>
-          <li>{dict?.li5 ?? ''}</li>
         </ul>
       </section>
     </>
