@@ -7,12 +7,19 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 body {
   margin: 0;
   min-height: 100vh;
-  display: grid;
-  place-items: center;
   font-family: ui-serif, Georgia, 'Times New Roman', serif;
   background: var(--beige);
   color: var(--green);
   font-size: clamp(16px, 2.5vw, 18px);
+}
+
+/* Center the React app root */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Add spacing above main content */
