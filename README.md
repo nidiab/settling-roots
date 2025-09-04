@@ -52,4 +52,5 @@ The Vite build outputs to `dist/`. The Pages workflow uploads it as an artifact 
   }
 }
 ```
-\n_deploy trigger: 2025-09-04T12:07:25.3078653+02:00_
+
+\n*deploy trigger: 2025-09-04T12:07:25.3078653+02:00*
